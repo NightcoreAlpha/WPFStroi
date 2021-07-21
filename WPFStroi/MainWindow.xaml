@@ -1,0 +1,21 @@
+﻿<Window x:Class="WPFStroi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFStroi"
+        mc:Ignorable="d"
+        Title="BuildWorld" Height="299" Width="285" Icon="/5eaa7a65e2cc7.png" Closing="Window_Closing">
+    <Grid Margin="0,0,10,0">
+        <GroupBox Header="Выберите логин" HorizontalAlignment="Left" Height="248" Margin="7,1,0,0" VerticalAlignment="Top" Width="249"/>
+        <TextBox x:Name="usernamebox" IsReadOnly="true" HorizontalAlignment="Left" Height="20" Margin="86,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <PasswordBox x:Name="userpasswordbox" HorizontalAlignment="Left" Margin="86,105,0,0" VerticalAlignment="Top" Width="142" Height="20"/>
+        <Label Content="Войти как:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пароль:" HorizontalAlignment="Left" Margin="27,100,0,0" VerticalAlignment="Top"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="86,154,0,0" VerticalAlignment="Top" Width="142" Height="29" Click="Button_Click"/>
+        <RadioButton x:Name="radiopersonal" GroupName="login" Content="Персонал магазина" HorizontalAlignment="Left" Margin="86,31.04,0,0" VerticalAlignment="Top" Checked="radiopersonal_Checked"/>
+        <RadioButton x:Name="radiodirector" GroupName="login" Content="Директор магазина" HorizontalAlignment="Left" Margin="86,51,0,0" VerticalAlignment="Top" Checked="radiodirector_Checked"/>
+        <Label Content="Логин:" HorizontalAlignment="Left" Margin="35,67,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

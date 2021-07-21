@@ -1,0 +1,104 @@
+﻿<Window x:Class="WPFStroi.DirectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFStroi"
+        mc:Ignorable="d" 
+        Title="Панель управления директора" Height="400" Width="750" Activated="Window_Activated" Closing="Window_Closing">
+    <Window.Resources>
+        <Style x:Key="centr" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Данные по сотрудникам" Padding="4">
+                <Grid x:Name="peronsgrid">
+                    <DataGrid x:Name="persongri" IsReadOnly="True" Height="243" Width="279" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" Margin="10,0,455,109" SelectionChanged="persongri_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя сотрудника" Width="*" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=personname}"></DataGridTextColumn>
+                            <!--
+                            <DataGridTextColumn Header="Номер" Width="auto" HeaderStyle="{StaticResource centr}"  Binding="{Binding Path=id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Фамилия" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=familia}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Отчество" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=otchestvo}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата рождения" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=bday}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Пол" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=gender}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="ИНН" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=inn}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Страна" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=idcountry}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Телефон" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=telefon}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Профессия" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=idprof}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Транспорт" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=idm}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Принят" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=datein}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Зарплата" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=salary}"></DataGridTextColumn>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="366,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120.001"/>
+                    <TextBox x:Name="fam" HorizontalAlignment="Left" Height="23" Margin="366,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="otch" HorizontalAlignment="Left" Height="23" Margin="366,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="inn" HorizontalAlignment="Left" Height="23" Margin="594,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tel" HorizontalAlignment="Left" Height="23" Margin="366,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Имя: " HorizontalAlignment="Left" Margin="322,7,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Фамилия: " HorizontalAlignment="Left" Margin="296,38,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Отчество: " HorizontalAlignment="Left" Margin="294,66,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Дата рождения: " HorizontalAlignment="Left" Margin="494,7,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Пол: " HorizontalAlignment="Left" Margin="557,38,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Инн: " HorizontalAlignment="Left" Margin="556,69,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Страна: " HorizontalAlignment="Left" Margin="540,100,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Телефон: " HorizontalAlignment="Left" Margin="298,97,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Проф.: " HorizontalAlignment="Left" Margin="313,127,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Label Content="Техника: " HorizontalAlignment="Left" Margin="533,127,0,0" VerticalAlignment="Top" Width="61"/>
+                    <Label Content="Дата принятия: " HorizontalAlignment="Left" Margin="498,159,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="oklad" HorizontalAlignment="Left" Height="23" Margin="366,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Оклад: " HorizontalAlignment="Left" Margin="313,159,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="bday" HorizontalAlignment="Left" Height="23" Margin="594,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="gender" HorizontalAlignment="Left" Height="23" Margin="594,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="countrybox" HorizontalAlignment="Left" Height="23" Margin="594,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="prof" HorizontalAlignment="Left" Height="23" Margin="366,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tehnika" HorizontalAlignment="Left" Height="23" Margin="594,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="addpersonbutton1" Content="Добавить в базу данных" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top" Height="31" Width="150" Click="addpersonbutton_Click"/>
+                    <Button x:Name="deletebutton" Content="Удалить сотрудника" HorizontalAlignment="Left" Margin="169,248,0,0" VerticalAlignment="Top" Height="31" Width="120" Click="deletebutton_Click"/>
+                    <TextBox x:Name="dateinbox" HorizontalAlignment="Left" Height="23" Margin="594,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="editbutton" Content="Редактировать" HorizontalAlignment="Left" Margin="366,212,0,0" VerticalAlignment="Top" Height="31" Width="105" Click="editbutton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Товары на складе" Padding="4">
+                <Grid>
+                    <DataGrid x:Name="gridproduct" IsReadOnly="True"  Width="auto" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Visible" Margin="0,0,500,160" SelectionChanged="gridproduct_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Товар" Width="*" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Количество" Width="*" HeaderStyle="{StaticResource centr}" Binding="{Binding Path=quantity}"></DataGridTextColumn>
+
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <GroupBox Header="Информация о товаре" Margin="249,0,0,0">
+                        <Grid>
+                            <TextBox x:Name="productname" HorizontalAlignment="Left" Height="23" Margin="104,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="productvid" HorizontalAlignment="Left" Height="23" Margin="104,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <Label Content="Наименование: " HorizontalAlignment="Left" Margin="5,7,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Вид: " HorizontalAlignment="Left" Margin="67,36,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Вес: " HorizontalAlignment="Left" Margin="69,63,0,0" VerticalAlignment="Top" Width="32"/>
+                            <TextBox x:Name="productlife" HorizontalAlignment="Left" Height="23" Margin="104,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <Label Content="Срок годности: " HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="productweight" HorizontalAlignment="Left" Height="23" Margin="104,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="productcountry" HorizontalAlignment="Left" Height="23" Margin="340,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="productmanuf" HorizontalAlignment="Left" Height="23" Margin="340,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <Label Content="Страна: " HorizontalAlignment="Left" Margin="281,7,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Производитель: " HorizontalAlignment="Left" Margin="234,36,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="productdescription" HorizontalAlignment="Left" Height="23" Margin="340,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <Label Content="Описание: " HorizontalAlignment="Left" Margin="269,91,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="productprice" HorizontalAlignment="Left" Height="23" Margin="340,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                            <Label Content="Цена: " HorizontalAlignment="Left" Margin="292,63,0,0" VerticalAlignment="Top" Width="43"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Техника" Padding="4"></TabItem>
+            <TabItem Header="Поставщики" Padding="4"></TabItem>
+            <TabItem Header="Клиентская база" Padding="4"></TabItem>
+        </TabControl>
+    </Grid>
+
+</Window>
